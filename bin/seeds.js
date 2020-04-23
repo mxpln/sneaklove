@@ -4,12 +4,12 @@
 
 // const sneaker = [
 //   {
-//     name: "Sneaker 1",
-//     ref: "011A",
+//     name: "Sneaker 2",
+//     ref: "011B",
 //     sizes: [6, 7, 8],
-//     description: "My sneaker",
+//     description: "A sneaker for women",
 //     price: 80,
-//     category: "men",
+//     category: "women",
 //     // id_tags: ["urban", "sport", "summer"],
 //   },
 // ];

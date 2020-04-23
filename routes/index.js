@@ -7,28 +7,40 @@ router.get("/", (req, res) => {
 });
 
 router.get("/sneakers/:cat", (req, res) => {
-  console.log(req.params.cat);
-  Sneaker.find({ category: req.params.cat })
-    .then((dbResult) => {
-      res.render("products", {
-        sneakers: dbResult,
+  if (req.params.cat === "collection") {
+    Sneaker.find({})
+      .then((dbResult) => {
+        res.render("products", {
+          sneakers: dbResult,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
       });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  } else {
+    Sneaker.find({ category: req.params.cat })
+      .then((dbResult) => {
+        res.render("products", {
+          sneakers: dbResult,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 });
 
 router.get("/one-product/:id", (req, res) => {
-  res.render("one_product");
-});
-
-router.get("/signup", (req, res) => {
-  res.render("signup");
-});
-
-router.get("/signin", (req, res) => {
-  res.render("signin");
+  console.log(req.params.id);
+  Sneaker.findById(req.params.id)
+    .then((dbResult) => {
+      res.render("one_product", {
+        sneakers: dbResult,
+      });
+    })
+    .catch((dbErr) => {
+      console.log(dbErr);
+    });
 });
 
 module.exports = router;
