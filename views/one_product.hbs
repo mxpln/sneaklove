@@ -4,15 +4,16 @@
       <h1 class="sneak-name">{{sneakers.name}}</h1>
       <p class="sneak-description">{{sneakers.description}}</p>
       <p class="sneak-ref">Ref. {{sneakers.ref}}</p>
+      <p>{{sneakers.id_tags.label}}</p>
     </div>
   </div>
   <div class="flexed-item">
     <select name="main-category" id="main_category" class="select sneak-select">
       <option value="">Choose Size</option>
-      <option value="">36</option>
-      <option value="">37</option>
+      <option value="">{{sneakers.sizes}}</option>
+      {{!-- <option value="">37</option>
       <option value="">38</option>
-      <option value="">39</option>
+      <option value="">39</option> --}}
     </select>
     <a href="" class="button-primary a-link">Add to cart <i class="fas fa-shopping-cart shop-cart-icon-page"></i></a>
   </div>

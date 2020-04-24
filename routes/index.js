@@ -31,8 +31,9 @@ router.get("/sneakers/:cat", (req, res) => {
 });
 
 router.get("/one-product/:id", (req, res) => {
-  console.log(req.params.id);
+  console.log(req.params);
   Sneaker.findById(req.params.id)
+    .populate("id_tags")
     .then((dbResult) => {
       res.render("one_product", {
         sneakers: dbResult,
