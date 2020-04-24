@@ -75,4 +75,14 @@ router.get("/product-edit/:id", (req, res) => {
       });
   });
 });
+
+router.post("/prod-edit/:id", (req, res) => {
+  Sneaker.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    .then((dbResult) => {
+      res.redirect("/prod-manage");
+    })
+    .catch((dbErr) => {
+      console.log(dbErr);
+    });
+});
 module.exports = router;
